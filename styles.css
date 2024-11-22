@@ -1,0 +1,601 @@
+/* restablece margenes y rellenos de todos los elementos*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* estilos basicos para el cuerpo, define la fuente, color y fondo del sitio */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* tipo de fuente principal */
+    background-color: #ffffff; /* color de fondo blanco */
+    color: #333; /* color de texto por defecto */
+}
+
+/* configura el encabezado como un contenedor flexible 
+justifica contenido entre el logo y el cuadro de busqueda*/
+header {
+    display: flex; 
+    justify-content: space-between; /* distribuye los items entre el logo y la busqueda */
+    padding: 20px; /* espacio interior */
+    background-color: white; /* fondo blanco para el header */
+    box-shadow: 0 2px 5px rgba(55, 55, 55, 0.1); 
+}
+
+/* tamaño y estilo del texto del titulo del logo */
+header .logo h1 {
+    font-size: 36px; /* tamaño grande para el texto del logo */
+    font-weight: 900; /* fuente en negrita */
+    color: #333; /* color logo */
+}
+
+/* quita subrayados en enlaces del logo */
+header .logo h1 a {
+    font-size: 36px;
+    font-weight: 900;
+    color: #333;
+    text-decoration: none; /* quita el subrayado */
+}
+
+/* estilo para el input de busqueda */
+.search-box input {
+    padding: 5px; /* espacio interior del input */
+    margin-top: 10px; /* separacion superior */
+    font-size: 15px; /* tamaño del texto */
+    border: 1px solid #ccc; 
+}
+
+/* estilo del menu de navegacion */
+.menuarch {
+    background-color: white; /* fondo blanco */
+    border-top: 2px solid #ccc; /* borde superior gris */
+}
+
+/* estilo del contenedor de los enlaces del menu */
+.menuarch ul {
+    display: flex; /* distribuye los items en fila */
+    justify-content: center; /* centra los elementos */
+    list-style: none; /* quita los puntos de lista */
+    padding: 10px 0; /* espacio arriba y abajo */
+}
+
+/* estilo de los elementos de lista dentro del menu */
+.menuarch ul li {
+    display: inline; /* distribuye los items de forma horizontal */
+    position: relative; /* necesario para los submenus */
+    margin: 0 40px; /* espaciado entre los elementos */
+}
+
+/* enlaces dentro del menu */
+.menuarch ul li a {
+    text-decoration: none; /* quita el subrayado de los enlaces */
+    font-weight: 300; /* fuente ligera */
+    text-transform: uppercase; /* convierte el texto a mayusculas */
+    color: #7d7d7d; /* color gris claro */
+    font-size: 15px; /* tamaño de la fuente */
+}
+
+/* submenu desplegable */
+.menuarch ul li ul {
+    display: inline; /* hace que el sub-menu este en linea */
+    position: static; /* posicionamiento estatico */
+    top: 110%; /* mueve el submenu abajo del item principal */
+    left: 0;
+    background-color: white; /* fondo blanco */
+    box-shadow: 10px 8px 15px rgba(0, 0, 0, 0.448); 
+    padding: 0;
+    opacity: 0; /* empieza con opacidad 0 */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* transiciones */
+    transform: translateY(20px); /* mueve el sub-menu hacia abajo */
+}
+
+/* posicionamiento del sub-menu */
+.menuarch ul li ul {
+    justify-content: center; /* centra los items en el submenu */
+    position: absolute; /* posicion absoluta dentro del contenedor */
+}
+
+/* efecto al pasar el mouse sobre el menu principal */
+.menuarch ul li:hover>ul {
+    display: block; /* muestra el submenu al pasar el mouse */
+    opacity: 100; /* hace el submenu completamente visible */
+    transform: translateY(0); /* hace que suba */
+}
+
+.menuarch ul li ul:hover {
+    display: block;
+    opacity: 100;
+}
+
+/* enlaces dentro del submenu */
+.menuarch ul li ul li a {
+    font-weight: normal;
+    margin: 0 50px;
+    padding: 5px;
+    line-height: 1;
+    color: #9f9f9f; /* color gris claro para los sub-enlaces */
+    display: block;
+    transition: color 0.3s ease; /* transicion suave de color */
+}
+
+/* efecto de color en los enlaces */
+.menuarch ul li ul li a:hover {
+    color: #000; /* cambia el color a negro */
+}
+
+.menuarch ul li a:hover {
+    color: #000; 
+}
+
+/* estilo del contenido principal */
+main {
+    margin-top: 10px; /* margen superior */
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    padding-bottom: 30px; /* espacio abajo */
+}
+
+/* estilo para las imagenes dentro del contenedor */
+main .images-container {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    display: flex; /* distribuye las imagenes en fila */
+    justify-content: space-between; /* distribuye el espacio entre las imagenes */
+    gap: 0px;
+}
+
+/* estilo de imagen dentro de un item */
+main .image-item img {
+    width: 100%; /* hace que la imagen ocupe todo el ancho */
+    max-width: 100%; /* asegura que no se estire la imagen */
+    transition: transform 0.3s ease; /* transicion de escala */
+}
+
+/* efecto */
+main .image-item img:hover {
+    transform: scale(1.05); /* aumenta el tamaño de la imagen */
+}
+
+/* ntroduccion */
+.intro-text {
+    text-align: center; /* centra el texto */
+    font-weight: 300; /* fuente grosor */
+    font-size: 15px; 
+    margin-top: 30px; /* margen superior */
+    color: rgb(152, 152, 152); /* color gris claro */
+}
+
+/* estilo del footer */
+footer {
+    display: flex;
+    justify-content: space-between; /* distribuye los elementos entre izquierda y derecha */
+    padding: 20px; /* padding para el footer */
+    background-color: #333; /* fondo oscuro */
+    color: white; /* texto blanco */
+    margin-top: 40px; /* margen superior */
+}
+
+/* estilo de los enlaces a la izquierda en el footer */
+footer .footer-left a {
+    color: white; /* color blanco */
+    text-decoration: none; 
+    margin-right: 20px; /* separacion entre enlaces */
+    font-size: small; /* fuente pequeña */
+    font-weight: 600; /* texto en negrita */
+}
+
+/* estilo de los enlaces a la derecha en el footer */
+footer .footer-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px; /* separacion entre iconos sociales */
+}
+
+/* linea horizontal dentro del footer */
+footer .footer-line {
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    margin-top: 10px;
+}
+
+/* enlaces dentro del footer */
+.footer-right a {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* estilo de los iconos de redes sociales */
+.footer-right img {
+    width: 25px; /* tamaño de los iconos */
+    height: 25px; /* tamaño de los iconos */
+    transition: transform 0.3s ease, filter 0.3s ease; 
+}
+
+/* efecto de escala y brillo al pasar el mouse sobre los iconos */
+.footer-right img:hover {
+    transform: scale(1.1); /* aumenta el tamaño */
+    filter: brightness(2); /* aumenta el brillo */
+}
+
+/* alineacion de los iconos de redes sociales en el footer */
+.footer-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    transform: translateX(-60px); /* mueve los iconos hacia la izquierda */
+}
+
+/* css seccion de biografia */
+.biography-section {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* distribuye el contenido en columna */
+    gap: 30px;
+}
+
+/* contenedor para la imagen y texto de la biografia */
+.bio-container {
+    display: flex;
+    align-items: center; /* alinea los items al centro */
+    gap: 50px; /* espacio entre la imagen y el texto */
+}
+
+.bio-image img {
+    width: 300px; /* tamaño de la imagen */
+    height: auto; /* mantiene la proporción */
+    border-radius: 5px; /* bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* estilo del texto dentro de la biografia */
+.bio-text {
+    max-width: 550px; /* tamaño maximo del contenedor de texto */
+}
+
+/* tamaño y estilo del titulo en la biografia */
+.bio-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* estilo del texto dentro de la biografia */
+.bio-text p {
+    font-size: 16px;
+    line-height: 1.6; /* interlineado */
+    color: #666; /* gris oscuro para el texto */
+}
+
+/* tamaño de los titulos en la seccion de estudios */
+.bio-study h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bio-study p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.bio-adicional {
+    margin-top: 20px; /* separacion superior */
+}
+
+/* tamaño y color de los titulos en la seccion adicional */
+.bio-adicional h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* estilo para las listas dentro de la seccion adicional */
+.bio-adicional ul {
+    list-style: none; /* elimina los puntos de la lista */
+    padding-left: 0; /* elimina el padding por defecto */
+}
+
+.bio-adicional ul li {
+    font-size: 16px;
+    color: #666; /* color gris para el texto */
+    margin-bottom: 5px;
+    position: relative; /* para colocar los puntos personalizados */
+    padding-left: 20px; /* espacio para los puntos */
+}
+
+/* estilo de los puntos personalizados en la lista */
+.bio-adicional ul li::before {
+    content: '•'; /* punto como contenido */
+    position: absolute;
+    left: 0; /* coloca el punto a la izquierda */
+    color: #333; /* color del punto */
+    font-size: 18px; /* tamaño del punto */
+    line-height: 1; /* alinea el punto con el texto */
+}
+
+/* estilo para la seccion de legado */
+.bio-legacy {
+    margin-top: 30px;
+    background-color: #ffffff; /* fondo blanco */
+    border-radius: 8px; /* bordes redondeados */
+}
+
+/* tamaño y color del titulo en la seccion de legado */
+.bio-legacy h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* estilo del texto en la seccion de legado */
+.bio-legacy p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6; /* interlineado */
+    margin-top: 8px; /* margen superior */
+}
+
+/* Sección de obras */
+.works-section {
+    margin-left: 70px; /* separacion izquierda */
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+}
+
+/* tamaño y estilo del titulo de la seccion de obras */
+.works-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px; /* espacio debajo del titulo */
+    text-align: center; /* centra el texto */
+}
+
+/* estilo de los items dentro de la seccion de obras */
+.work-item {
+    display: flex; /* distribuye en fila */
+    margin-top: 50px; /* espacio arriba */
+    align-items: left; /* alinea los items a la izquierda */
+    margin-bottom: 30px; /* espacio abajo */
+}
+
+.work-image img {
+    width: 400px; /* ancho de la imagen */
+    height: auto; /* mantiene la proporción de la imagen */
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    margin-right: 20px;
+}
+
+/* estilo del texto dentro de cada item de obra */
+.work-text {
+    margin-left: 40px; /* espacio entre imagen y texto */
+    max-width: 900px; /* ancho maximo del texto */
+}
+
+.work-text h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px; /* margen debajo del titulo */
+}
+
+/* estilo del parrafo dentro de los items de obras */
+.work-text p {
+    font-size: 16px;
+    margin-right: 30px; /* margen derecho */
+    color: #666; 
+    line-height: 1.6; /* interlineado */
+}
+
+/* comentarios */
+.comments-section {
+    margin-top: 50px;
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+}
+
+
+.comments-section h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px; /* margen debajo del titulo */
+}
+
+.comments-section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6; /* interlineado */
+}
+
+.contributions-section {
+    background-color: #f9f9f9;
+    max-width: 1000px; /* maximo ancho */
+    margin: 0 auto; /* centra el contenido */
+    margin-top: 25px; /* margen superior */
+    padding: 20px;
+}
+
+/* aportes */
+.contributions-section h2 {
+    font-size: 28px;
+    text-align: center; /* centra el texto */
+    color: #333;
+    padding-bottom: 20px; /* espacio debajo de la linea */
+}
+
+.contribution-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+
+.contribution-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px; /* espacio debajo del titulo */
+    text-transform: uppercase; /* convierte el texto a mayusculas */
+    text-align: center; /* centra el texto */
+}
+
+
+.contribution-item p {
+    font-size: 16px;
+    line-height: 1.6; /* interlineado */
+    color: #555; 
+    margin-bottom: 10px;
+    text-align: center; /* centra el texto */
+    margin-top: 20px; /* espacio superior */
+}
+
+
+.comments-section h3 {
+    font-size: 1.6em;
+    color: #333;
+    text-align: center; /* centra el texto */
+    margin-bottom: 10px; /* espacio debajo del titulo */
+}
+
+/* texto de los comentarios */
+.comments-section p {
+    font-size: 1em;
+    line-height: 1.6; /* interlineado */
+    color: #444; /* gris oscuro */
+    text-align: center; /* centra el texto */
+}
+
+/* contacto */
+.contact-section {
+    max-width: 700px;
+    margin: 50px auto; /* centra el formulario */
+    padding: 20px;
+    text-align: center; /* centra el texto */
+    background-color: #e6e6e6; /* fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* tamaño y estilo del titulo en la seccion de contacto */
+.contact-section h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px; /* espacio abajo */
+}
+
+/* estructura del formulario de contacto */
+.contact-form {
+    display: flex; 
+    flex-direction: column; /* distribuye los campos en columna */
+    gap: 15px; /* espacio entre campos */
+}
+
+/* etiquetas en el formulario */
+.contact-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: left; /* alinea a la izquierda */
+}
+
+/* estilo de los campos de texto y textarea en el formulario */
+.contact-form input,
+.contact-form textarea  {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d1d1d1; 
+    border-radius: 5px; /* bordes redondeados */
+    width: 100%; /* ancho completo */
+}
+
+/* estilo del placeholder dentro del formulario */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #b8b8b8; 
+    font-family: Arial, Helvetica, sans-serif; /* tipo de fuente */
+}
+
+/*boton de envio */
+.contact-form button {
+    padding: 12px;
+    font-size: 16px;
+    color: white; /* texto blanco */
+    background-color: #333; 
+    border: none;
+    border-radius: 5px; /* bordes redondeados */
+    transition: background-color 0.3s ease; /* transicion suave */
+    margin-top: 20px; /* espacio superior */
+}
+
+/* efecto del boton al pasar el mouse */
+.contact-form button:hover {
+    background-color: #555; /* cambia a un gris más claro */
+}
+
+/* tamaño para pantalla pequeña */
+
+@media (max-width: 768px) {
+    /* Ajuste del header y menu */
+    header {
+        flex-direction: column; /* pone el contenido en columna */
+        align-items: center;
+        text-align: center; /* centra el texto */
+    }
+    
+    .menuarch ul {
+        flex-direction: column; /* enlaces en columna */
+        gap: 10px;
+    }
+
+    /* ontenedor de img */
+    .images-container {
+        flex-direction: column; /* pone las imagenes en columna */
+        gap: 20px;
+    }
+
+    /* biografia y secciones */
+    .bio-container {
+        flex-direction: column; /* pone el texto e imagen en columna */
+        align-items: center;
+    }
+    .bio-image img {
+        width: 80%; /* ajusta la imagen a 80% del contenedor */
+        max-width: 300px;
+    }
+
+    .work-item {
+        flex-direction: column; /* pone las imagenes y texto en columna */
+        align-items: left;
+    }
+    .work-image img {
+        width: 80%; 
+        max-width: 400px;
+        margin-bottom: 20px;
+        margin-left: -15px;
+    }
+    .work-text p {
+        margin-left: -55px; /* ajusta el margen de texto */
+    }
+    .work-text h3 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: -55px;
+    }
+    .work-text h2 {
+        margin-left: -55px;
+    }
+    .comments-section p {
+        justify-content: left;
+    }
+
+    footer {
+        flex-direction: column; /* pone el footer en columna */
+        text-align: center;
+        gap: 10px;
+    }
+}
